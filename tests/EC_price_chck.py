@@ -11,9 +11,6 @@ try:
     link = "http://suninjuly.github.io/explicit_wait2.html"
     browser.get(link)
 
-    WebDriverWait(browser, 12).until(
-        EC.text_to_be_present_in_element((By.ID, "price"), "$100")
-    )
     btn = browser.find_element(By.ID, "book")
     btn.click()
 
