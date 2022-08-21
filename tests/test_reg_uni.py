@@ -4,7 +4,7 @@ import time
 import unittest
 
 
-class TestAbs(unittest.TestCase):
+class TestReg(unittest.TestCase):
     def test_reg1(self):
         link = "http://suninjuly.github.io/registration1.html"
         browser = webdriver.Chrome()
@@ -28,8 +28,11 @@ class TestAbs(unittest.TestCase):
         # находим элемент, содержащий текст
         welcome_text_elt = browser.find_element(By.TAG_NAME, "h1")
         # записываем в переменную welcome_text текст из элемента welcome_text_elt
-        welcome_text = welcome_text_elt.text
-        self.assertEqual("Congratulations! You have successfully registered!", welcome_text, "Text is not equal")
+        waiting_msg = "Congratulations! You have successfully registered!"
+        actual_msg = welcome_text_elt.text
+        self.assertEqual(waiting_msg, actual_msg, "Text is not equal")
+        time.sleep(10)
+        browser.quit()
 
     def test_reg2(self):
         link = "http://suninjuly.github.io/registration2.html"
@@ -54,8 +57,11 @@ class TestAbs(unittest.TestCase):
         # находим элемент, содержащий текст
         welcome_text_elt = browser.find_element(By.TAG_NAME, "h1")
         # записываем в переменную welcome_text текст из элемента welcome_text_elt
-        welcome_text = welcome_text_elt.text
-        self.assertEqual("Congratulations! You have successfully registered!", welcome_text, "Text is not equal")
+        actual_msg = welcome_text_elt.text
+        waiting_msg = "Congratulations! You have successfully registered!"
+        self.assertEqual(waiting_msg, actual_msg, "Text is not equal")
+        time.sleep(10)
+        browser.quit()
 
 
 if __name__ == "__main__":
